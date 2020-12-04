@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Add from "./add";
 import { Animated } from "react-animated-css";
+import SidebarMenu from "./sidebarMenu";
 import Todos from "./todos";
 
 // import axios from "axios";
@@ -21,7 +22,6 @@ const SidebarDiv = styled.div`
   max-width: 20vw;
   min-width: 300px;
   display: inline-block;
-  /* flex: 1; */
 `;
 
 const Button = styled.button`
@@ -33,21 +33,13 @@ const Button = styled.button`
   flex: 1;
 `;
 const TodoContainer = styled.div`
-  margin: 0px 10px;
+  margin: 30px 10px;
 `;
 
 const ButtonContainers = styled.div`
   display: flex;
   width: 90%;
   margin: 0 auto;
-`;
-const TodoItems = styled.div`
-  padding: 1px;
-  display: block;
-  width: 100%;
-  background-color: #134c6f;
-  color: white;
-  margin-bottom: 10px;
 `;
 
 // Styles
@@ -58,14 +50,18 @@ export default function Sidebar(props) {
   let todos = [
     {
       id: 1,
-      text: "Angelo",
+      title: "Math Notes Video",
+      text:
+        "Fugiat aliqua dolore officia Lorem labore veniam elit excepteur aute occaecat fugiat aliquip mollit nostrud. Ea aute in adipisicing proident ut culpa ex veniam anim. Est amet dolore occaecat ea duis. Anim eiusmod culpa eu nulla. Pariatur sint laboris excepteur nostrud sint ea proident sunt anim dolor proident cupidatat ad. In aute laboris nulla proident cupidatat fugiat officia cillum dolor cupidatat labore ex. Velit id tempor ipsum aliquip commodo eiusmod aute nulla commodo duis velit id.",
     },
     {
       id: 2,
+      title: "Add border",
       text: "Zuniga",
     },
     {
       id: 3,
+      title: "Delete background color",
       text: "Blabla",
     },
   ];
@@ -76,48 +72,42 @@ export default function Sidebar(props) {
   };
 
   const [clickedDiv, setClickedDiv] = useState(1);
+  const [todoClicked, setTodoClicked] = useState(todos[0]);
 
-  let changeActive = (todo) => {
-    setClickedDiv(todo.id);
+  let setTheTodo = (todo) => {
+    props.setTodo(todoClicked);
   };
 
   useEffect(() => {
     console.log(clickedDiv);
+    setTheTodo();
   });
 
   return (
     <SidebarDiv>
-      <Title>Projects</Title>
-      <ButtonContainers>
+      {/* <ButtonContainers>
         <Button add onClick={showAdd}>
           {" "}
           Add{" "}
         </Button>
         <Button> Sort by </Button>
-      </ButtonContainers>
-
+      </ButtonContainers> */}
+      <Title>Projects</Title>
       <TodoContainer>
         {todos.map((todo) => {
           return (
             // The function setTheTodo was initiated when the user clicks a TodoItem component and
             // passed the todo object as parameter
+
             <Todos
               todo={todo}
-              setTheTodo={props.setTheTodo}
+              setTheTodo={setTodoClicked}
               setClickedDiv={setClickedDiv}
               clickedDiv={clickedDiv}
             />
           );
         })}
       </TodoContainer>
-
-      <Animated
-        animationIn="fadeIn"
-        animationOut="fadeOut"
-        isVisible={addVisible}
-      >
-        <Add> blabla </Add>
-      </Animated>
     </SidebarDiv>
   );
 }

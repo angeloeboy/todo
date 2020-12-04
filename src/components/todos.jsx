@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const TodoItems = styled.div`
-  padding: 1px;
+  padding: 5px;
   display: block;
   width: 100%;
-  background-color: #134c6f;
   color: white;
   margin-bottom: 10px;
+  transition: all 0.19s ease-in-out;
+  border-bottom: 1px solid #acacac;
+  max-height: 60px;
 `;
 
 export default function Todos(props) {
@@ -15,17 +17,20 @@ export default function Todos(props) {
     props.setTheTodo(props.todo);
     props.setClickedDiv(props.todo.id);
   };
+
+  // useEffect(() => {
+  //   props.setTheTodo(props.todo);
+  // });
   return (
     <TodoItems
       onClick={handleOnClick}
       style={
         props.clickedDiv === props.todo.id
-          ? { backgroundColor: "pink" }
-          : { backgroundColor: "#134c6f" }
+          ? { backgroundColor: "#464755" }
+          : { backgroundColor: "#272838" }
       }
     >
-      <p>{props.todo.id}</p>
-      <p>{props.todo.text}</p>
+      <p>{props.todo.title}</p>
     </TodoItems>
   );
 }
