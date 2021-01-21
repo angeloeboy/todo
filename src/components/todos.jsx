@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const TodoItems = styled.div`
@@ -18,9 +17,6 @@ export default function Todos(props) {
     props.setClickedDiv(props.todo.id);
   };
 
-  // useEffect(() => {
-  //   props.setTheTodo(props.todo);
-  // });
   return (
     <TodoItems
       onClick={handleOnClick}

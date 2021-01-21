@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Add from "./add";
-import { Animated } from "react-animated-css";
-import SidebarMenu from "./sidebarMenu";
+// import Add from "./add";
+// import { Animated } from "react-animated-css";
+// import SidebarMenu from "./sidebarMenu";
 import Todos from "./todos";
 
 // import axios from "axios";
@@ -24,29 +24,27 @@ const SidebarDiv = styled.div`
   display: inline-block;
 `;
 
-const Button = styled.button`
-  background-color: ${(props) => (props.add ? "#80C767" : "red")};
-  padding: 10px 20px;
-  text-transform: uppercase;
-  border: none;
-  margin: 10px 10px;
-  flex: 1;
-`;
+// const Button = styled.button`
+//   background-color: ${(props) => (props.add ? "#80C767" : "red")};
+//   padding: 10px 20px;
+//   text-transform: uppercase;
+//   border: none;
+//   margin: 10px 10px;
+//   flex: 1;
+// `;
 const TodoContainer = styled.div`
   margin: 30px 10px;
 `;
 
-const ButtonContainers = styled.div`
-  display: flex;
-  width: 90%;
-  margin: 0 auto;
-`;
+// const ButtonContainers = styled.div`
+//   display: flex;
+//   width: 90%;
+//   margin: 0 auto;
+// `;
 
 // Styles
 
 export default function Sidebar(props) {
-  const [addVisible, setAddVisible] = useState(false);
-
   let todos = [
     {
       id: 1,
@@ -66,10 +64,10 @@ export default function Sidebar(props) {
     },
   ];
 
-  let showAdd = () => {
-    setAddVisible(!addVisible);
-    console.log(!addVisible);
-  };
+  // let showAdd = () => {
+  //   setAddVisible(!addVisible);
+  //   console.log(!addVisible);
+  // };
 
   const [clickedDiv, setClickedDiv] = useState(1);
   const [todoClicked, setTodoClicked] = useState(todos[0]);
@@ -79,19 +77,12 @@ export default function Sidebar(props) {
   };
 
   useEffect(() => {
-    console.log(clickedDiv);
     setTheTodo();
+    // console.log(clickedDiv);
   });
 
   return (
     <SidebarDiv>
-      {/* <ButtonContainers>
-        <Button add onClick={showAdd}>
-          {" "}
-          Add{" "}
-        </Button>
-        <Button> Sort by </Button>
-      </ButtonContainers> */}
       <Title>Projects</Title>
       <TodoContainer>
         {todos.map((todo) => {

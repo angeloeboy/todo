@@ -1,0 +1,29 @@
+.my-node-enter {
+  opacity: 1;
+  top: 45%;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: all 300ms;
+  top: 50%;
+}
+
+.my-node-enter-done {
+  transition: all 100ms;
+  top: 50%;
+}
+
+.my-node-exit {
+  opacity: 1;
+  transition: all 0.2s;
+  top: 45%;
+}
+
+.my-node-exit-active {
+  opacity: 0;
+}
+
+.my-node-exit-done {
+  opacity: 0;
+  transition: opacity 200ms;
+}

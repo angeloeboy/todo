@@ -8,16 +8,17 @@ const Div = styled.div`
   width: 500px;
   height: 500px;
   position: absolute;
-  top: 50%;
+  /* top: 50%; */
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: all 0.3s ease-in-out;
 `;
 
 export default function Add(props) {
   return (
     <Div>
-      <h1> Add Task </h1>
+      <h1>Angelo</h1>
+
+      <p onClick={() => props.close(!props.isClosed)}>close</p>
     </Div>
   );
 }
